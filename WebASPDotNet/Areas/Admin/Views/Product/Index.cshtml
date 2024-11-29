@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TblProduct>
+@{
+	ViewData["title"] = "Product List";
+}
+<a asp-action="Create" asp-controller="Product">Thêm Sản Phẩm</a>
+<h2>Quản Lý Sản Phẩm</h2><br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ảnh</th>
+            <th scope="col">Tên Sản Phẩm</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Giá Giảm</th>
+            <th scope="col">Số Lượng</th>
+            <th scope="col">Danh Mục Sản Phẩm</th>
+            <th scope="col">Ngày Tạo</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ProductId</th>
+                <td><img src="~/images/products/@item.Image" width="70" height="70" alt="Ảnh Sản Phẩm" /></td>
+                <td width="400">@item.Name</td>               
+                <td>@item.Price vnđ</td>
+                <td>@item.PriceSale vnđ</td>
+                <td>@item.Quantity</td>
+                <td >@item.Category.Title</td>
+                <td width="50">@item.CreatedDate</td>
+                <td>
+                    <a asp-controller="Product" class="btn btn-warning btn-sm" asp-action="Edit" asp-route-ProductId="@item.ProductId">Edit</a>
+                    <a asp-controller="Product" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-ProductId="@item.ProductId">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

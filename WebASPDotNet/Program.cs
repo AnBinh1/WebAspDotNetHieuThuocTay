@@ -6,6 +6,7 @@ builder.Services.AddDbContext<WebAspdotNetContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //moi..............................
@@ -32,7 +33,13 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+	name: "Areas",
+	pattern: "{Area:exists}/{controller=Product}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();

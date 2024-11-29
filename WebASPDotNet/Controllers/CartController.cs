@@ -56,7 +56,7 @@ namespace WebASPDotNet.Controllers
 
 			// Lưu lại giỏ hàng vào Session
 			HttpContext.Session.SetJson("Cart", CartItems);
-
+			TempData["success"] = "Thêm sản phẩm vào giỏ hàng thành công";
 			return RedirectToAction("Index");
 		}
 		public async Task<IActionResult> Decrease(int Id)
@@ -79,6 +79,7 @@ namespace WebASPDotNet.Controllers
 			{
 				HttpContext.Session.SetJson("Cart", CartItems);
 			}
+			TempData["success"] = "Giảm số lượng sản phẩm thành công";
 			return RedirectToAction("Index");
 		}
 		public async Task<IActionResult> Increase(int Id)
@@ -101,6 +102,7 @@ namespace WebASPDotNet.Controllers
 			{
 				HttpContext.Session.SetJson("Cart", CartItems);
 			}
+			TempData["success"] = "Tăng số lượng sản phẩm thành công";
 			return RedirectToAction("Index");
 		}
 		public async Task<IActionResult> Remove(int Id)
@@ -115,6 +117,7 @@ namespace WebASPDotNet.Controllers
 			{
 				HttpContext.Session.SetJson("Cart", CartItems);
 			}
+			TempData["success"] = "bạn đã xoá sản phẩm trong giỏ hàng";
 			return RedirectToAction("Index");
 		}
 		

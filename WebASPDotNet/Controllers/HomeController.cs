@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebASPDotNet.Models;
 
@@ -18,7 +18,11 @@ namespace WebASPDotNet.Controllers
         public IActionResult Index()
         {
             var Products = _context.TblProducts.ToList();
-            return View(Products);
+			if (Products.Count == 0)
+			{
+				_logger.LogWarning("Không có sản phẩm nào trong cơ sở dữ liệu.");
+			}
+			return View(Products);
         }
 
         public IActionResult Privacy()
