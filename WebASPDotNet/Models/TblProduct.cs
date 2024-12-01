@@ -23,7 +23,7 @@ public partial class TblProduct
 	public decimal Price { get; set; }
 	public decimal? PriceSale { get; set; }
 	public int? Quantity { get; set; }
-	[Required,Range(1,int.MaxValue,ErrorMessage ="yêu cầu chọn 1 loại sản phẩm")]
+	[Required,Range(1,int.MaxValue,ErrorMessage ="yêu cầu chọn 1 loại danh mục sản phẩm")]
 	public int CategoryId { get; set; }
 
 

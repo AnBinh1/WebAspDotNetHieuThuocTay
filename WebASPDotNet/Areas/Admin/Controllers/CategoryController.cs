@@ -7,9 +7,9 @@ using WebASPDotNet.Models;
 namespace WebASPDotNet.Areas.Admin.Controllers
 {
 	[Area("Admin")]
-	public class CategoryController:Controller
+	public class CategoryController : Controller
 	{
-		
+
 		public readonly WebAspdotNetContext _context;
 		public CategoryController(WebAspdotNetContext context)
 		{
@@ -102,13 +102,13 @@ namespace WebASPDotNet.Areas.Admin.Controllers
 			return View(category);
 		}
 		public async Task<IActionResult> Delete(int CategoryId)
-        {
+		{
 			TblCategory category = await _context.TblCategories.FindAsync(CategoryId);
 
 			_context.TblCategories.Remove(category);
-            await _context.SaveChangesAsync();
-            TempData["success"] = "Sản phẩm đã bị xoá";
-            return RedirectToAction("Index");
-        }
-    }
+			await _context.SaveChangesAsync();
+			TempData["success"] = "Sản phẩm đã bị xoá";
+			return RedirectToAction("Index");
+		}
+	}
 }

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<TblMenu>
+@foreach(var item in Model)
+{
+	<div style="margin-left:200px">
+		<ul class="nav navbar-nav collapse navbar-collapse" style="font-size:20px">
+			<li><a href="/@item.Alias">@item.Title</a></li>
+		</ul>
+	</div>
+}

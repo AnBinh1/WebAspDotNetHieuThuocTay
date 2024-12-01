@@ -2,12 +2,14 @@
 @{
 	ViewData["Title"] = "Create Category";
 }
-<h3>Thêm Danh Mục Sản Phẩm</h3><br />
-<div class="col-md-9">
+<br />
+<h2 style="margin-left:50px">Thêm Danh Mục Sản Phẩm</h2>
+<br />
+<div class="col-md-10" style="margin-left:70px;font-weight:bold;color:black;font-size:15px">
 	<form asp-action="Create" enctype="multipart/form-data">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 		<div class="form-group">
-			<label>Tên Danh Mục</label>
+			<label>Tên Danh Mục Sản Phẩm</label>
 			<input asp-for="Title" class="form-control" />
 			<span asp-validation-for="Title" class="text-danger"></span>
 		</div>
@@ -25,9 +27,9 @@
 			<lable class="form-check-label">
 				<input class="form-check-input" asp-for="IsActive" /> Hiển Thị
 			</lable>
-		</div>
+		</div><br />
 		<div class="form-group">
-			<button class="btn btn-primary btn-sm">Thêm Danh mục sản phẩm</button>
+			<button class="btn btn-primary btn-sm">Thêm Danh Mục Sản Phẩm</button>
 		</div>
 	</form>
 	<a asp-action="Index">Quay lại</a>

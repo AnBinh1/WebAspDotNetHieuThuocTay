@@ -252,107 +252,22 @@ a#scrollUp i{
 	color:#fdb45e;
 }
 
-.search_box input {
-  background: #F0F0E9;
-  border: medium none;
-  color: #B2B2B2;
-  font-family: 'roboto';
-  font-size: 12px;
-  font-weight: 300;
-  height: 35px;
-  outline: medium none;
-  padding-left: 10px;
-  width: 155px;
-  background-image: url(../images/home/searchicon.png);
-  background-repeat: no-repeat;
-  background-position: 130px;
-}
 
 
 /*  Dropdown menu*/
 
-.navbar-header 
-.navbar-toggle .icon-bar {
-    background-color: #fff;
-}
-
-
-.nav.navbar-nav > li:hover > ul.sub-menu{
-  display: block;
-  -webkit-animation: fadeInUp 400ms;
-  -moz-animation: fadeInUp 400ms;
-  -ms-animation: fadeInUp 400ms;
-  -o-animation: fadeInUp 400ms;
-  animation: fadeInUp 400ms;
-}
-
-ul.sub-menu {
-	position: absolute;
-	top: 30px;
-	left: 0;
-	background: rgba(0, 0, 0, 0.6);
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	width: 220px;
-	-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
-	display: none;
-	z-index: 999;
-}
-
-.dropdown ul.sub-menu li .active{
-  color: #FDB45E;
-  padding-left: 0;
-}
-
-
-.navbar-nav li ul.sub-menu li{
-  padding: 10px 20px 0 ;
-}
-
-.navbar-nav li ul.sub-menu li:last-child{
-  padding-bottom: 20px;
-}
-
-.navbar-nav li ul.sub-menu li a{
-  color: #fff;
-}
-
-.navbar-nav li ul.sub-menu li a:hover{
-    color: #FDB45E;
-}
-
-.fa-angle-down{
-  padding-left: 5px; 
-}
-
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-  
 /*************************
 *******Footer CSS******
 **************************/
 
 #footer {
-  background: #F0F0E9;
+  background-color:green;
 }
 
 
 .footer-top .container {
   border-bottom: 1px solid #E0E0DA;
-  padding-bottom: 20px;
+  padding-top:10px;
 }
 
 .companyinfo {
@@ -360,18 +275,18 @@ ul.sub-menu {
 }
 
 .companyinfo h2 {
-  color: #B4B1AB;
+  color: white;
   font-family: abel;
   font-size: 27px;
   text-transform: uppercase;
 }
 
 .companyinfo h2  span{
-  color:#FE980F;
+  color:white;
 }
 
 .companyinfo p {
-  color: #B3B3AD;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 300;
@@ -424,27 +339,6 @@ ul.sub-menu {
   margin-top: -20px;
 }
 
-.video-gallery a:hover .overlay-icon{
-  opacity: 1;
-}
-
-.video-gallery p {
-  color: #8C8C88;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom:0px;
-}
-
-.video-gallery  h2 {
-  color: #8c8c88;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  text-transform:uppercase;
-  margin-top:0px;
-}
-
 
 .address {
   margin-top: 30px;
@@ -456,7 +350,7 @@ ul.sub-menu {
 }
 
 .address p {
-  color: #666663;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -465,17 +359,16 @@ ul.sub-menu {
   top: 50px;
 }
 
-.footer-widget {
-  margin-bottom: 68px;
-}
+
 
 .footer-widget .container {
   border-top: 1px solid #FFFFFF;
   padding-top: 15px;
+  padding-bottom:20px;
 }
 
 .single-widget h2 {
-  color: #666663;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -486,9 +379,11 @@ ul.sub-menu {
 .single-widget h2 i{
 	margin-right:15px;
 }
-
-.single-widget ul li a{
-	color: #8C8C88;
+.single-widget ul li p{
+	color:white;
+}
+.single-widget ul li a {
+	color: white;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -507,7 +402,7 @@ ul.sub-menu {
 
 .searchform input {
   border: 1px solid #DDDDDD;
-  color: #CCCCC6;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   margin-top: 0;
@@ -527,7 +422,7 @@ ul.sub-menu {
 }
 
 .searchform button i {
-  color: #FFFFFF;
+  color: white;
   font-size: 20px;
 }
 
@@ -537,30 +432,13 @@ ul.sub-menu {
 }
 
 .searchform p {
-  color: #8C8C88;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
   margin-top: 25px;
 }
 
-.footer-bottom {
-  background: #D6D6D0;
-  padding-top: 10px;
-}
-
-.footer-bottom p {
-  color: #363432;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  margin-left: 15px;
-}
-
-.footer-bottom p span a {
-  color: #FE980F;
-  font-style: italic;
-  text-decoration: underline;
-}
 
 
 /*************************

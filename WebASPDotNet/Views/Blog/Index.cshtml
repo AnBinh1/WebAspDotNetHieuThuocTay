@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TblBlog>
+<div class="col-sm-3">
+	@Html.Partial("_SidebarPartial")
+</div>
+<style>
+	.product-image-wrapper {
+		height: 400px;
+	}
+</style>
+<div class="col-sm-9">
+	<div class="blog-post-area">
+		<h2 class="title text-center">Tin Tức Y Dược</h2>
+		@foreach(var item in Model)
+		{
+			<div class="col-sm-4">
+				<div class="product-image-wrapper">
+					<div class="single-products">
+
+						<div class="productinfo text-center">
+							<a asp-action="BlogDetails" asp-route-Alias="@item.Alias">
+								<img src="~/images/blogs/@item.Image" alt="ảnh blog" width="200" height="220">
+								<h3>@item.Title</h3>
+								<a class="btn btn-primary">Read More</a>
+						</a>
+						</div>
+
+					</div>
+					
+				</div>
+			</div>			
+		}
+	</div>
+</div>

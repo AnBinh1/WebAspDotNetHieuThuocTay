@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TblBlog>
+@{
+    ViewData["title"] = "Blog List";
+}
+<br />
+<div style="margin-left:30px">
+    <h2>Quản Lý Tin Tức</h2>
+    <a asp-action="Create" asp-controller="Blog">Thêm Tin Tức</a>
+</div>
+<div class="col-sm-12" style="margin-left:10px">
+    <table class="table">
+        <thead style="font-weight:bold;color:black;font-size:15px">
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Ảnh</th>
+                <th scope="col">Tiêu Đề</th>
+                <th scope="col">Loại Tin Tức</th>
+                <th scope="col">Hiện</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.BlogId</th>
+                    <td><img src="~/images/blogs/@item.Image" width="40" height="40" alt="Ảnh Bài Viết" /></td>
+                    <td>@item.Title</td>
+                    <td>@item.Category.Title</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                    <td>
+                        <a asp-controller="Blog" class="btn btn-warning btn-sm" asp-action="Edit" asp-route-BlogId="@item.BlogId">Edit</a>
+                        <a asp-controller="Blog" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-BlogId="@item.BlogId">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

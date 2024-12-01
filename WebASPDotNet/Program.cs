@@ -18,6 +18,8 @@ builder.Services.AddSession(options =>
 });
 //moi..................................
 var app = builder.Build();
+
+app.UseStatusCodePagesWithRedirects("/Home/Error?statuscode={0}");
 //moi...............................
 app.UseSession();
 //moi..................................
@@ -34,7 +36,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "Areas",
-	pattern: "{Area:exists}/{controller=Product}/{action=Index}/{id?}");
+	pattern: "{Area:exists}/{controller=Menu}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

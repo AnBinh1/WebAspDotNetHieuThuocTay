@@ -2,35 +2,37 @@
 @{
     ViewData["title"] = "Category List";
 }
-<a asp-action="Create" asp-controller="Category">Thêm Danh Mục Sản Phẩm</a>
-<h1>Quản Lý Danh Mục Sản Phẩm</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">STT</th>
-            <th scope="col">Loại Sản Phẩm</th>
-            <th scope="col">Mô Tả</th>
-            <th scope="col">Vị trí</th>
-            <th scope="col">Hiển Thị</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var item in Model)
-        {
+<br />
+    <h2 style="margin-left:30px">Quản Lý Danh Mục Sản Phẩm</h2>
+<a style="margin-left:50px" asp-action="Create" asp-controller="Category">Thêm Danh Mục Sản Phẩm</a>
+<div class="col-sm-10" style="margin-left:70px">
+    <table class="table">
+        <thead style="font-weight:bold;color:black;font-size:15px">
             <tr>
-                <th scope="row">@item.CategoryId</th>
-                <td>@item.Title</td>
-                <td>@item.Description</td>
-                <td>@item.Position</td>
-                <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
-
-                <td>
-                    <a asp-controller="Category" class="btn btn-warning btn-sm" asp-action="Edit" asp-route-CategoryId="@item.CategoryId">Edit</a>
-                    <a asp-controller="Category" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-CategoryId="@item.CategoryId">Delete</a>
-                </td>
+                <th scope="col">STT</th>
+                <th scope="col">Tên Danh Mục</th>
+                <th scope="col">Mô Tả</th>
+                <th scope="col">Vị Trí</th>
+                <th scope="col">Hiện</th>
             </tr>
-        }
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.CategoryId</th>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.Position</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                    <td>
+                        <a asp-controller="Category" class="btn btn-warning btn-sm" asp-action="Edit" asp-route-CategoryId="@item.CategoryId">Edit</a>
+                        <a asp-controller="Category" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-CategoryId="@item.CategoryId">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

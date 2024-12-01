@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<TblProduct>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="_SliderPartial"/>
 <div class="col-sm-3">
 	@Html.Partial("_SidebarPartial")
 </div>

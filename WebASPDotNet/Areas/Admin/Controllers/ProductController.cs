@@ -11,6 +11,7 @@ namespace WebASPDotNet.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductController : Controller
     {
+
         private readonly WebAspdotNetContext _context;
         private readonly IWebHostEnvironment _environment;
         public ProductController(WebAspdotNetContext context, IWebHostEnvironment webHostEnvironment)
@@ -22,34 +23,35 @@ namespace WebASPDotNet.Areas.Admin.Controllers
         {
             return View(await _context.TblProducts.OrderByDescending(p => p.ProductId).Include(p => p.Category).ToListAsync());
         }
+
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Category = new SelectList(_context.TblCategories,"CategoryId","Title");
+            ViewBag.Category = new SelectList(_context.TblCategories, "CategoryId", "Title");
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TblProduct product)
         {
-			ViewBag.Category = new SelectList(_context.TblCategories, "CategoryId", "Title",product.CategoryId);
-            if(ModelState.IsValid)
+            ViewBag.Category = new SelectList(_context.TblCategories, "CategoryId", "Title", product.CategoryId);
+            if (ModelState.IsValid)
             {
                 product.Alias = product.Name.Replace(" ", "-");
-                var Alias = await _context.TblProducts.FirstOrDefaultAsync(p => p.Alias ==  product.Alias);
-                if(Alias != null)
+                var Alias = await _context.TblProducts.FirstOrDefaultAsync(p => p.Alias == product.Alias);
+                if (Alias != null)
                 {
                     ModelState.AddModelError("", "sản phẩm đã có trong cơ sở dữ liệu");
                     return View(product);
                 }
                 else
                 {
-                    if(product.ImageUpload != null)
+                    if (product.ImageUpload != null)
                     {
-                        string uploadsDir = Path.Combine(_environment.WebRootPath,"images/products");
+                        string uploadsDir = Path.Combine(_environment.WebRootPath, "images/products");
                         string imageName = Guid.NewGuid().ToString() + "_" + product.ImageUpload.FileName;
-                        string filePath = Path.Combine(uploadsDir,imageName);
-                        FileStream  fs = new FileStream(filePath,FileMode.Create);
+                        string filePath = Path.Combine(uploadsDir, imageName);
+                        FileStream fs = new FileStream(filePath, FileMode.Create);
                         await product.ImageUpload.CopyToAsync(fs);
                         fs.Close();
                         product.Image = imageName;
@@ -57,35 +59,35 @@ namespace WebASPDotNet.Areas.Admin.Controllers
                 }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-				TempData["success"] = "bạn đã thêm thành công";
+                TempData["success"] = "bạn đã thêm thành công";
                 return RedirectToAction("Index");
-			}
+            }
             else
             {
                 TempData["error"] = "có một vài thứ đang bị lỗi";
                 List<string> errors = new List<string>();
-                foreach(var value in ModelState.Values)
+                foreach (var value in ModelState.Values)
                 {
-                    foreach(var error in value.Errors)
+                    foreach (var error in value.Errors)
                     {
                         errors.Add(error.ErrorMessage);
                     }
                 }
-				string ErrorMessage = string.Join("\n",errors);
+                string ErrorMessage = string.Join("\n", errors);
                 return BadRequest(ErrorMessage);
-			}
-            
+            }
 
-			return View(product);
-		}
-		
-		public async Task<IActionResult> Edit(int ProductId)
+
+            return View(product);
+        }
+
+        public async Task<IActionResult> Edit(int ProductId)
         {
             TblProduct product = await _context.TblProducts.FindAsync(ProductId);
-			ViewBag.Category = new SelectList(_context.TblCategories, "CategoryId", "Title", product.CategoryId);
-			return View(product);
+            ViewBag.Category = new SelectList(_context.TblCategories, "CategoryId", "Title", product.CategoryId);
+            return View(product);
 
-		}
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(TblProduct product)
@@ -136,7 +138,7 @@ namespace WebASPDotNet.Areas.Admin.Controllers
 
             return View(product);
         }
-        
+
         public async Task<IActionResult> Delete(int ProductId)
         {
             TblProduct product = await _context.TblProducts.FindAsync(ProductId);

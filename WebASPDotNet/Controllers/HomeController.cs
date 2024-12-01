@@ -23,17 +23,19 @@ namespace WebASPDotNet.Controllers
 				_logger.LogWarning("Không có sản phẩm nào trong cơ sở dữ liệu.");
 			}
 			return View(Products);
-        }
-
-        public IActionResult Privacy()
+        }	
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error(int statuscode)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if(statuscode == 404)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+				return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+			}
+            
         }
     }
 }
