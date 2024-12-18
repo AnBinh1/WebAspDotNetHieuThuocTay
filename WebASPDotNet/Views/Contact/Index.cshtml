@@ -75,7 +75,8 @@
 			</div>
 		</div>
 	</div>
-</div><!--/#contact-page-->
+</div>
+<!--/#contact-page-->
 @section Scripts {
 	<script>
 		$(document).ready(function () {
@@ -89,7 +90,7 @@
 					type: "POST",
 					data: { name: _name, phone: _phone, email: _email, message: _message },
 					success: function (result) {
-						console.log(result); // Kiểm tra phản hồi từ server
+						console.log(result); // Kiểm tra phản hồi từ server.
 						if (result.status) {
 							$("#c_name, #c_phone, #c_email, #c_message").val("");
 							toastr.success('Gửi thành công');
@@ -98,7 +99,7 @@
 						}
 					},
 					error: function (xhr, status, error) {
-						console.error("Error:", status, error); // Ghi lỗi vào console
+						console.error("Error:", status, error); // Ghi lỗi vào console.
 						toastr.error('Đã xảy ra lỗi khi gửi');
 					}
 				});
